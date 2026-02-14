@@ -1,0 +1,43 @@
+{
+  "questions": [
+    {
+      "question": "vi.fn() で作成した関数の呼び出しを検証するマッチャーはどれですか？",
+      "options": ["toBe", "toEqual", "toHaveBeenCalledWith", "toContain"],
+      "answer": 2,
+      "explanation": "toHaveBeenCalledWith はモック関数が特定の引数で呼ばれたかを検証します。呼ばれたかどうかだけなら toHaveBeenCalled を使います。"
+    },
+    {
+      "question": "スタブとモックの違いとして正しいのはどれですか？",
+      "options": [
+        "スタブは固定値を返し、モックは呼び出しを記録する",
+        "スタブは高速で、モックは低速である",
+        "スタブはテスト前に、モックはテスト後に使う",
+        "スタブとモックに違いはない"
+      ],
+      "answer": 0,
+      "explanation": "スタブは固定の値を返す偽物で「テスト対象に必要な値を与える」ために使います。モックは呼び出しを記録する偽物で「正しく呼ばれたか検証する」ために使います。"
+    },
+    {
+      "question": "vi.spyOn で監視した関数を元に戻すメソッドはどれですか？",
+      "options": [
+        "spy.reset()",
+        "spy.restore()",
+        "spy.mockRestore()",
+        "spy.undo()"
+      ],
+      "answer": 2,
+      "explanation": "mockRestore() はスパイを元の関数に戻します。mockReset() は呼び出し記録をリセットしますが、元の実装には戻しません。"
+    },
+    {
+      "question": "非同期関数のモックで戻り値を設定するメソッドはどれですか？",
+      "options": [
+        "mockReturnValue",
+        "mockResolvedValue",
+        "mockAsyncValue",
+        "mockPromiseValue"
+      ],
+      "answer": 1,
+      "explanation": "mockResolvedValue は Promise.resolve(値) を返すモックを作ります。同期関数なら mockReturnValue、Promiseがrejectされるケースなら mockRejectedValue を使います。"
+    }
+  ]
+}

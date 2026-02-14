@@ -16,15 +16,15 @@ QAmindの実装タスク管理。スペック駆動開発で進める。
 
 ## Phase 1: プロジェクトセットアップ
 
-- [ ] pnpm init + package.json設定（name, type: module, bin, scripts）
-- [ ] TypeScript設定（tsconfig.json）
-- [ ] vitest設定（vitest.config.ts, vitest.practice.config.ts）
-- [ ] tsup設定
-- [ ] ESLint設定（@typescript-eslint, react, react-hooks）
-- [ ] Prettier設定
-- [ ] husky + lint-staged設定
-- [ ] GitHub Actions設定（PR-check.yml）
-- [ ] 依存パッケージインストール（ink, ink-select-input, ink-testing-library, marked, marked-terminal 等）
+- [~] pnpm init + package.json設定（name, type: module, bin, scripts）
+- [~] TypeScript設定（tsconfig.json）
+- [~] vitest設定（vitest.config.ts, vitest.practice.config.ts）
+- [~] tsup設定
+- [~] ESLint設定（@typescript-eslint, react, react-hooks）
+- [~] Prettier設定
+- [~] husky + lint-staged設定
+- [~] GitHub Actions設定（PR-check.yml）
+- [~] 依存パッケージインストール（ink, ink-select-input, ink-testing-library, marked, marked-terminal 等）
 
 ## Phase 2: CLIアプリ基盤
 

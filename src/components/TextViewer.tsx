@@ -8,7 +8,7 @@ type TextViewerProps = {
 }
 
 export const TextViewer = ({ content, onProceed }: TextViewerProps) => {
-  marked.use(markedTerminal() as marked.MarkedExtension)
+  marked.use(markedTerminal() as Parameters<typeof marked.use>[0])
   const rendered = marked.parse(content) as string
 
   useInput((_input, key) => {

@@ -32,5 +32,22 @@ export const useNavigation = () => {
   const goToQuiz = (practiceNumber: number) =>
     setScreen({ type: 'quiz', practiceNumber })
 
-  return { screen, handleMenuSelect, goToMenu, goToTextViewer, goToQuiz }
+  const goToQuizResult = (
+    practiceNumber: number,
+    score: number,
+    total: number,
+  ) => setScreen({ type: 'quiz-result', practiceNumber, score, total })
+
+  const goToExercise = (practiceNumber: number) =>
+    setScreen({ type: 'exercise', practiceNumber })
+
+  return {
+    screen,
+    handleMenuSelect,
+    goToMenu,
+    goToTextViewer,
+    goToQuiz,
+    goToQuizResult,
+    goToExercise,
+  }
 }

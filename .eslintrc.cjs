@@ -26,6 +26,26 @@ module.exports = {
   },
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'react/function-component-definition': [
+      'error',
+      { namedComponents: 'arrow-function', unnamedComponents: 'arrow-function' },
+    ],
+    'no-restricted-exports': [
+      'error',
+      { restrictDefaultExports: { direct: true } },
+    ],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      { prefer: 'type-imports' },
+    ],
   },
+  overrides: [
+    {
+      files: ['*.config.ts'],
+      rules: {
+        'no-restricted-exports': 'off',
+      },
+    },
+  ],
   ignorePatterns: ['dist/', 'node_modules/', '*.cjs'],
 }

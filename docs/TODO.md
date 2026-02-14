@@ -52,10 +52,10 @@ QAmindの実装タスク管理。スペック駆動開発で進める。
 - [x] Practice 1: テストの基本構造（AAAパターン）- TEXT.md, questions.json, target.ts, target.test.ts
 - [x] Practice 2: 境界値分析
 - [x] Practice 3: 同値分割
-- [ ] Practice 4: 異常系・例外テスト
-- [ ] Practice 5: 状態を持つもののテスト
-- [ ] Practice 6: モック・スタブの使い方
-- [ ] Practice 7: 結合テストの役割
+- [x] Practice 4: 異常系・例外テスト
+- [x] Practice 5: 状態を持つもののテスト
+- [x] Practice 6: モック・スタブの使い方
+- [x] Practice 7: 結合テストの役割
 
 ## Phase 6: 学習コンテンツ（応用フェーズ）
 

@@ -66,6 +66,8 @@ QAmindの実装タスク管理。スペック駆動開発で進める。
 ## Phase 7: Claude Code連携
 
 - [ ] mistakes.mdへの書き込みフロー
+- [ ] レビュー時のprogress.json更新フロー（status, reviewCount, completedAt）
+- [ ] レビュー3回後の自動完了処理
 
 ## Phase 8: 仕上げ
 

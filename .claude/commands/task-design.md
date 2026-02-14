@@ -7,17 +7,19 @@ $ARGUMENTS: GitHub issueの番号（例: #3）
 ## 実行手順
 
 1. `gh issue view $ARGUMENTS` でissueの内容を取得する
-2. 現在のブランチがmainであることを確認し、最新の状態にする（`git checkout main && git pull`）
-3. issueの内容に基づき新規ブランチを作成する（`git checkout -b feature/{issue番号}-{概要の短縮名（英語）}`）
-4. `.claude/templates/steering.md` のテンプレートに従い、`docs/steering/{issue番号}-{概要の短縮名（英語）}.md` を作成する（ブランチ名と同じ命名規則）
+2. `docs/design.md` と `docs/requirements.md` を読み、プロジェクト全体の設計方針を把握する
+3. 現在のブランチがmainであることを確認し、最新の状態にする（`git checkout main && git pull`）
+4. issueの内容に基づき新規ブランチを作成する（`git checkout -b feature/{issue番号}-{概要の短縮名（英語）}`）
+5. `.claude/templates/steering.md` のテンプレートに従い、`docs/steering/{issue番号}-{概要の短縮名（英語）}.md` を作成する（ブランチ名と同じ命名規則）
    - メタ情報にissue番号、ブランチ名、作成日を記入する
-   - issueの内容をもとに概要・実装方針・影響範囲・テスト設計・完了条件を記述する
+   - issueの内容とdesign.md/requirements.mdをもとに概要・実装方針・影響範囲・テスト設計・完了条件を記述する
    - テスト設計は単体テストと結合テストに分けて具体的なテストケースを書く
-5. ステアリングファイルをコミットする
-6. リモートにpushし、Draft PRを作成する（`gh pr create --draft`）
+6. `docs/TODO.md` の該当タスクのステータスを `[~]` 進行中に更新する
+7. ステアリングファイルとTODO.mdをコミットする
+8. リモートにpushし、Draft PRを作成する（`gh pr create --draft`）
    - PRのbodyは `.github/pull_request_template.md` の形式に従う
    - 関連Issueとして `closes #N` を含める
-7. 作成したPRのURLを出力する
+9. 作成したPRのURLを出力する
 
 ## 注意事項
 

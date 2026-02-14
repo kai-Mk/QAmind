@@ -1,0 +1,43 @@
+{
+  "questions": [
+    {
+      "question": "AAAパターンの「Arrange」に該当するのはどれですか？",
+      "options": [
+        "テスト対象の関数を実行する",
+        "テストに必要なデータや状態を準備する",
+        "実行結果が期待通りか検証する",
+        "テスト後にデータをクリーンアップする"
+      ],
+      "answer": 1,
+      "explanation": "Arrangeはテストの前準備です。テストに必要な変数の宣言やオブジェクトの生成を行います。"
+    },
+    {
+      "question": "オブジェクト同士の比較に適切なマッチャーはどれですか？",
+      "options": ["toBe", "toEqual", "toContain", "toMatch"],
+      "answer": 1,
+      "explanation": "toEqual はオブジェクトや配列の中身（値）を再帰的に比較します。toBe は参照の一致を見るため、オブジェクトの比較には使えません。"
+    },
+    {
+      "question": "describe の役割として正しいのはどれですか？",
+      "options": [
+        "テスト結果を検証する",
+        "テストケースを1つ定義する",
+        "関連するテストをグループ化する",
+        "テストの前処理を定義する"
+      ],
+      "answer": 2,
+      "explanation": "describe は関連するテストケースをグループ化するための関数です。テスト対象の関数名やクラス名をグループ名にすることが多いです。"
+    },
+    {
+      "question": "AAAパターンの正しい順序はどれですか？",
+      "options": [
+        "Act → Arrange → Assert",
+        "Assert → Act → Arrange",
+        "Arrange → Assert → Act",
+        "Arrange → Act → Assert"
+      ],
+      "answer": 3,
+      "explanation": "AAAパターンは Arrange（準備）→ Act（実行）→ Assert（検証）の順で書きます。この順序を守ることでテストが読みやすくなります。"
+    }
+  ]
+}

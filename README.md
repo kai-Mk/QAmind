@@ -21,7 +21,7 @@ AIがコードを書く時代に、エンジニアに求められる「何を守
 
 ```bash
 pnpm install
-pnpm run build
+pnpm build
 ```
 
 ## 使い方
@@ -33,10 +33,10 @@ npx qamind
 ## 開発
 
 ```bash
-pnpm run dev       # 開発モード（watch）
-pnpm run test      # CLIアプリのテスト
-pnpm run lint      # ESLint
-pnpm run format    # Prettier
+pnpm dev       # 開発モード（watch）
+pnpm test      # CLIアプリのテスト
+pnpm lint      # ESLint
+pnpm format    # Prettier
 ```
 
 ## ドキュメント

@@ -18,13 +18,13 @@ QAmindプロジェクトにおけるClaude Codeの作業ガイドライン。
 
 ```bash
 pnpm install          # 依存インストール
-pnpm run build        # ビルド（tsup）
-pnpm run dev          # 開発モード（watch）
-pnpm run test         # CLIアプリのテスト（vitest）
-pnpm run lint         # ESLint
-pnpm run lint:fix     # ESLint 自動修正
-pnpm run format       # Prettier 整形
-pnpm run format:check # Prettier 差分チェック
+pnpm build        # ビルド（tsup）
+pnpm dev          # 開発モード（watch）
+pnpm test         # CLIアプリのテスト（vitest）
+pnpm lint         # ESLint
+pnpm lint:fix     # ESLint 自動修正
+pnpm format       # Prettier 整形
+pnpm format:check # Prettier 差分チェック
 ```
 
 ## コーディング規約

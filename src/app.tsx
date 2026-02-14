@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { Box, Text } from 'ink'
-import SelectInput from 'ink-select-input'
+import { Text } from 'ink'
 import { Menu } from './components/Menu.js'
 import { PracticeSelect } from './components/PracticeSelect.js'
 import { TextViewer } from './components/TextViewer.js'
 import { Quiz } from './components/Quiz.js'
 import { QuizResult } from './components/QuizResult.js'
 import { WrongAnswerReview } from './components/WrongAnswerReview.js'
+import { Exercise } from './components/Exercise.js'
 import { useNavigation } from './hooks/useNavigation.js'
-import { screenLabels } from './constants.js'
 import type { Question, WrongAnswersData } from './types.js'
 import { addWrongAnswer, loadWrongAnswers } from './utils/wrongAnswers.js'
 
@@ -130,14 +129,6 @@ export const App = () => {
     )
   }
 
-  // 未実装画面のプレースホルダー
-  return (
-    <Box flexDirection="column">
-      <Text>{screenLabels[screen.type] ?? screen.type}</Text>
-      <SelectInput
-        items={[{ label: 'メニューに戻る', value: 'back' }]}
-        onSelect={goToMenu}
-      />
-    </Box>
-  )
+  // exercise
+  return <Exercise practiceNumber={screen.practiceNumber} onMenu={goToMenu} />
 }

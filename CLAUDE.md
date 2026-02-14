@@ -46,6 +46,9 @@ pnpm format:check     # Prettier 差分チェック
 - テスト: vitest + ink-testing-library
 - Inkコンポーネントは `.tsx` で作成
 - ユーティリティは `.ts` で作成
+- コンポーネント・関数は `export const` で名前付きエクスポート（default export 禁止）
+- コンポーネントはアロー関数で定義（`export const App = () => { ... }`）
+- 型のimportは `import type` を使用
 
 ## ディレクトリ構成
 

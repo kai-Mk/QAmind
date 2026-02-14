@@ -6,7 +6,7 @@ $ARGUMENTS: GitHub issueの番号（例: #3）
 
 ## 実行手順
 
-1. `gh issue view $ARGUMENTS` でissueの内容を取得する
+1. `gh issue view $ARGUMENTS --json title,body,labels,milestone,assignees` でissueの内容を取得する
 2. `docs/design.md` と `docs/requirements.md` を読み、プロジェクト全体の設計方針を把握する
 3. 現在のブランチがmainであることを確認し、最新の状態にする（`git checkout main && git pull`）
 4. issueの内容に基づき新規ブランチを作成する（`git checkout -b feature/{issue番号}-{概要の短縮名（英語）}`）
@@ -16,7 +16,7 @@ $ARGUMENTS: GitHub issueの番号（例: #3）
    - テスト設計は単体テストと結合テストに分けて具体的なテストケースを書く
 6. `docs/TODO.md` の該当タスクのステータスを `[~]` 進行中に更新する
 7. ステアリングファイルとTODO.mdをコミットする
-8. リモートにpushし、Draft PRを作成する（`gh pr create --draft`）
+8. リモートにpushし、PRを作成する（`gh pr create`）
    - PRのbodyは `.github/pull_request_template.md` の形式に従う
    - 関連Issueとして `closes #N` を含める
 9. 作成したPRのURLを出力する

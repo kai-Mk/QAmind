@@ -1,0 +1,55 @@
+{
+  "name": "qamind",
+  "version": "0.1.0",
+  "description": "テスト設計学習CLIアプリ",
+  "type": "module",
+  "bin": {
+    "qamind": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup src/index.tsx --format esm",
+    "dev": "tsup src/index.tsx --format esm --watch",
+    "test": "vitest",
+    "test:practice": "vitest run --config vitest.practice.config.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "packageManager": "pnpm@10.8.0",
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "ink": "^6.7.0",
+    "ink-select-input": "^6.2.0",
+    "marked": "^15.0.7",
+    "marked-terminal": "^7.3.0",
+    "react": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "husky": "^9.1.7",
+    "ink-testing-library": "^4.0.0",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

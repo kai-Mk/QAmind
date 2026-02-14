@@ -1,18 +1,20 @@
 import { useState } from 'react'
 import type { MenuAction, Screen } from '../types.js'
+import { getFirstIncomplete } from '../utils/progress.js'
 
 export const useNavigation = () => {
   const [screen, setScreen] = useState<Screen>({ type: 'menu' })
 
-  const handleMenuSelect = (action: MenuAction) => {
+  const handleMenuSelect = async (action: MenuAction) => {
     switch (action) {
       case 'start':
         setScreen({ type: 'text-viewer', practiceNumber: 1 })
         break
-      case 'resume':
-        // TODO: progress.json から未完了プラクティスを特定する（Phase 3）
-        setScreen({ type: 'text-viewer', practiceNumber: 1 })
+      case 'resume': {
+        const next = await getFirstIncomplete()
+        setScreen({ type: 'text-viewer', practiceNumber: next ?? 1 })
         break
+      }
       case 'select':
         setScreen({ type: 'practice-select' })
         break
@@ -24,5 +26,11 @@ export const useNavigation = () => {
 
   const goToMenu = () => setScreen({ type: 'menu' })
 
-  return { screen, handleMenuSelect, goToMenu }
+  const goToTextViewer = (practiceNumber: number) =>
+    setScreen({ type: 'text-viewer', practiceNumber })
+
+  const goToQuiz = (practiceNumber: number) =>
+    setScreen({ type: 'quiz', practiceNumber })
+
+  return { screen, handleMenuSelect, goToMenu, goToTextViewer, goToQuiz }
 }

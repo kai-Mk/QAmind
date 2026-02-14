@@ -83,10 +83,10 @@
 
 ## 完了条件
 
-- [ ] PracticeSelect コンポーネントが実装されている
-- [ ] TextViewer コンポーネントが実装されている
-- [ ] app.tsx に新画面が組み込まれている
-- [ ] useNavigation.ts が practiceNumber を管理している
-- [ ] 単体テストが全て通過する
-- [ ] 結合テストが全て通過する
-- [ ] テストが全て通過する（pnpm test -- --run）
+- [x] PracticeSelect コンポーネントが実装されている
+- [x] TextViewer コンポーネントが実装されている
+- [x] app.tsx に新画面が組み込まれている
+- [x] useNavigation.ts が practiceNumber を管理している
+- [x] 単体テストが全て通過する
+- [x] 結合テストが全て通過する
+- [x] テストが全て通過する（pnpm test -- --run）

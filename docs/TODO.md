@@ -11,7 +11,8 @@ QAmindの実装タスク管理。スペック駆動開発で進める。
 - [x] カスタムコマンド作成（task-design, task-run, task-check, text-create, test-review）
 - [x] ステアリングファイルテンプレート作成（.claude/templates/steering.md）
 - [x] PRテンプレート作成（.github/pull_request_template.md）
-- [ ] GitHubリポジトリ連携（ghコマンドでリモートリポジトリ接続）
+- [x] GitHubリポジトリ連携（ghコマンドでリモートリポジトリ接続）
+- [x] GitHub issue作成（全10 issue）
 
 ## Phase 1: プロジェクトセットアップ
 

@@ -2,20 +2,20 @@
 
 ## 技術スタック
 
-| カテゴリ | 技術 | 用途 |
-|---------|------|------|
-| 言語 | TypeScript (ESM) | アプリ全体 |
-| CLIフレームワーク | Ink | ターミナルUI（メニュー、選択問題、結果表示） |
-| テストフレームワーク | vitest | 学習演習 + CLIアプリ自体のテスト |
-| ビルドツール | tsup | TSX → JS の変換 |
-| パッケージマネージャー | pnpm | 依存管理 |
-| Markdown表示 | marked + marked-terminal | CLI上でTEXT.mdを装飾付き表示 |
-| 選択UI | ink-select-input | メニュー・選択問題のUI |
-| CLIテスト | ink-testing-library | Inkコンポーネントのテスト |
-| Lint | ESLint + @typescript-eslint + eslint-plugin-react + eslint-plugin-react-hooks | コード品質チェック |
-| Format | Prettier | コード整形 |
-| Git hooks | husky + lint-staged | コミット時にlint/format実行 |
-| CI | GitHub Actions | lint / typecheck / build / test の自動実行 |
+| カテゴリ               | 技術                                                                          | 用途                                         |
+| ---------------------- | ----------------------------------------------------------------------------- | -------------------------------------------- |
+| 言語                   | TypeScript (ESM)                                                              | アプリ全体                                   |
+| CLIフレームワーク      | Ink                                                                           | ターミナルUI（メニュー、選択問題、結果表示） |
+| テストフレームワーク   | vitest                                                                        | 学習演習 + CLIアプリ自体のテスト             |
+| ビルドツール           | tsup                                                                          | TSX → JS の変換                              |
+| パッケージマネージャー | pnpm                                                                          | 依存管理                                     |
+| Markdown表示           | marked + marked-terminal                                                      | CLI上でTEXT.mdを装飾付き表示                 |
+| 選択UI                 | ink-select-input                                                              | メニュー・選択問題のUI                       |
+| CLIテスト              | ink-testing-library                                                           | Inkコンポーネントのテスト                    |
+| Lint                   | ESLint + @typescript-eslint + eslint-plugin-react + eslint-plugin-react-hooks | コード品質チェック                           |
+| Format                 | Prettier                                                                      | コード整形                                   |
+| Git hooks              | husky + lint-staged                                                           | コミット時にlint/format実行                  |
+| CI                     | GitHub Actions                                                                | lint / typecheck / build / test の自動実行   |
 
 ---
 
@@ -162,11 +162,11 @@ Practice 1: テストの基本構造（AAAパターン）
 }
 ```
 
-| フィールド | 型 | 説明 |
-|-----------|-----|------|
-| status | string | `not_started` / `in_progress` / `completed` |
-| reviewCount | number | レビュー回数（応用フェーズのみ、最大3） |
-| completedAt | string | 完了日時（ISO 8601、完了時のみ） |
+| フィールド  | 型     | 説明                                        |
+| ----------- | ------ | ------------------------------------------- |
+| status      | string | `not_started` / `in_progress` / `completed` |
+| reviewCount | number | レビュー回数（応用フェーズのみ、最大3）     |
+| completedAt | string | 完了日時（ISO 8601、完了時のみ）            |
 
 ### wrong-answers.json
 
@@ -188,17 +188,20 @@ Practice 1: テストの基本構造（AAAパターン）
 
 レビュー指摘内容をMarkdown形式で蓄積（応用フェーズのみ）。
 
-```markdown
+````markdown
 ## Practice 8: 要件からのテスト設計
 
 ### レビュー1回目
+
 - 指摘: 境界値のテストが漏れていた
 - コード例:
   ```ts
   // 漏れていたケース
   it('0件の場合', () => { ... })
   ```
-```
+````
+
+````
 
 ### questions.json
 
@@ -218,14 +221,14 @@ Practice 1: テストの基本構造（AAAパターン）
     }
   ]
 }
-```
+````
 
-| フィールド | 型 | 説明 |
-|-----------|-----|------|
-| question | string | 問題文 |
-| options | string[] | 選択肢（4択） |
-| answer | number | 正解のインデックス（0始まり） |
-| explanation | string | 解説（正誤問わず回答後に表示） |
+| フィールド  | 型       | 説明                           |
+| ----------- | -------- | ------------------------------ |
+| question    | string   | 問題文                         |
+| options     | string[] | 選択肢（4択）                  |
+| answer      | number   | 正解のインデックス（0始まり）  |
+| explanation | string   | 解説（正誤問わず回答後に表示） |
 
 ---
 
@@ -264,11 +267,11 @@ CLIアプリのテストと学習演習のテストを分離する。
 
 ### CLIアプリのテスト
 
-| 対象 | テスト内容 | ツール |
-|------|-----------|--------|
-| UIコンポーネント | 画面の表示内容、選択操作の動作 | ink-testing-library + vitest |
-| utils（progress.ts等） | JSON読み書き、状態管理ロジック | vitest |
-| testRunner | vitest実行と結果パースの動作 | vitest |
+| 対象                   | テスト内容                     | ツール                       |
+| ---------------------- | ------------------------------ | ---------------------------- |
+| UIコンポーネント       | 画面の表示内容、選択操作の動作 | ink-testing-library + vitest |
+| utils（progress.ts等） | JSON読み書き、状態管理ロジック | vitest                       |
+| testRunner             | vitest実行と結果パースの動作   | vitest                       |
 
 ※ 詳細なテスト設計書は実装時に作成する。
 
@@ -317,12 +320,12 @@ jobs:
       - run: pnpm test -- --run
 ```
 
-| ジョブ | 内容 |
-|--------|------|
-| lint | ESLintによるコード品質チェック |
+| ジョブ    | 内容                                  |
+| --------- | ------------------------------------- |
+| lint      | ESLintによるコード品質チェック        |
 | typecheck | tscによる型チェック（`tsc --noEmit`） |
-| build | tsupによるビルド成功確認 |
-| test | CLIアプリのテスト実行 |
+| build     | tsupによるビルド成功確認              |
+| test      | CLIアプリのテスト実行                 |
 
 ---
 
@@ -330,13 +333,13 @@ jobs:
 
 ### カスタムコマンド一覧
 
-| コマンド | 用途 |
-|---------|------|
-| `/task-design #N` | GitHub issueからブランチ作成 → ステアリングファイル作成 → Draft PR作成 |
-| `/task-run <steering-path>` | ステアリングファイルに基づきテスト → 実装（スペック駆動） |
-| `/task-check` | テスト実行・完了条件照合 → TODO.md更新 |
-| `/text-create N` | 学習コンテンツ TEXT.md の下書き作成 |
-| `/test-review N` | 応用フェーズの学習者コード添削（Claude Code限定） |
+| コマンド                    | 用途                                                                   |
+| --------------------------- | ---------------------------------------------------------------------- |
+| `/task-design #N`           | GitHub issueからブランチ作成 → ステアリングファイル作成 → Draft PR作成 |
+| `/task-run <steering-path>` | ステアリングファイルに基づきテスト → 実装（スペック駆動）              |
+| `/task-check`               | テスト実行・完了条件照合 → TODO.md更新                                 |
+| `/text-create N`            | 学習コンテンツ TEXT.md の下書き作成                                    |
+| `/test-review N`            | 応用フェーズの学習者コード添削（Claude Code限定）                      |
 
 ### 1 issueの開発サイクル
 
@@ -371,16 +374,19 @@ jobs:
 CLIの「レビューを依頼する」選択時にClaude Codeのカスタムコマンドを呼び出す。
 
 レビュー観点（プロンプトに含める）:
+
 - テスト観点の網羅性（正常系・異常系・境界値）
 - 単体テストと結合テストの役割分担の適切さ
 - テストの可読性・保守性
 - 要件に対する漏れの有無
 
 レビューOKの場合:
+
 - progress.jsonのstatusをcompletedに更新
 - completedAtを記録
 
 レビューNGの場合:
+
 - reviewCountをインクリメント
 - 指摘内容をmistakes.mdに追記
 - 3回目のレビュー後は結果に関わらず完了とする

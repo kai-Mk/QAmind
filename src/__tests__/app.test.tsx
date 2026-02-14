@@ -3,12 +3,33 @@ import { render } from 'ink-testing-library'
 import { App } from '../app.js'
 import { KEYS, press } from './helpers.js'
 
+const mockQuestions = JSON.stringify({
+  questions: [
+    {
+      question: 'テスト問題',
+      options: ['A', 'B', 'C', 'D'],
+      answer: 0,
+      explanation: '解説テキスト',
+    },
+  ],
+})
+
 vi.mock('node:fs/promises', () => ({
-  readFile: vi.fn().mockResolvedValue('# テスト内容\n\nサンプルテキスト'),
+  readFile: vi.fn().mockImplementation((filePath: string) => {
+    if (filePath.endsWith('questions.json')) {
+      return Promise.resolve(mockQuestions)
+    }
+    return Promise.resolve('# テスト内容\n\nサンプルテキスト')
+  }),
 }))
 
 vi.mock('../utils/progress.js', () => ({
   getFirstIncomplete: vi.fn().mockResolvedValue(3),
+}))
+
+vi.mock('../utils/wrongAnswers.js', () => ({
+  addWrongAnswer: vi.fn().mockResolvedValue(undefined),
+  loadWrongAnswers: vi.fn().mockResolvedValue({}),
 }))
 
 describe('App', () => {
@@ -29,14 +50,13 @@ describe('App', () => {
       expect(lastFrame()).toContain('問題に進む')
     })
 
-    it('TextViewerからEnterで選択問題画面に遷移する', async () => {
+    it('TextViewerからEnterでQuiz画面に遷移する', async () => {
       const { lastFrame, stdin } = render(<App />)
 
       await press(stdin, KEYS.ENTER)
       await press(stdin, KEYS.ENTER)
 
-      expect(lastFrame()).toContain('選択問題')
-      expect(lastFrame()).toContain('メニューに戻る')
+      expect(lastFrame()).toContain('テスト問題')
     })
 
     it('「プラクティスを選択する」でPracticeSelectに遷移する', async () => {

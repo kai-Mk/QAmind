@@ -2,10 +2,22 @@ export type Screen =
   | { type: 'menu' }
   | { type: 'text-viewer'; practiceNumber: number }
   | { type: 'quiz'; practiceNumber: number }
-  | { type: 'quiz-result'; practiceNumber: number }
+  | {
+      type: 'quiz-result'
+      practiceNumber: number
+      score: number
+      total: number
+    }
   | { type: 'exercise'; practiceNumber: number }
   | { type: 'practice-select' }
   | { type: 'wrong-answer-review' }
+
+export type Question = {
+  question: string
+  options: string[]
+  answer: number
+  explanation: string
+}
 
 export type MenuAction = 'start' | 'resume' | 'select' | 'review'
 

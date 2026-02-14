@@ -16,7 +16,7 @@ $ARGUMENTS: GitHub issueの番号（例: #3）
    - テスト設計は単体テストと結合テストに分けて具体的なテストケースを書く
 6. `docs/TODO.md` の該当タスクのステータスを `[~]` 進行中に更新する
 7. ステアリングファイルとTODO.mdをコミットする
-8. リモートにpushし、Draft PRを作成する（`gh pr create --draft`）
+8. リモートにpushし、PRを作成する（`gh pr create`）
    - PRのbodyは `.github/pull_request_template.md` の形式に従う
    - 関連Issueとして `closes #N` を含める
 9. 作成したPRのURLを出力する

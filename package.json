@@ -27,6 +27,7 @@
       "prettier --write"
     ]
   },
+  "packageManager": "pnpm@10.8.0",
   "keywords": [],
   "license": "MIT",
   "dependencies": {

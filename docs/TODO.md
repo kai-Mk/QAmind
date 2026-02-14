@@ -44,7 +44,7 @@ QAmindの実装タスク管理。スペック駆動開発で進める。
 - [x] TEXT.md表示（src/components/TextViewer.tsx）- marked-terminal使用
 - [x] 選択問題（src/components/Quiz.tsx）- 1問ずつ出題、正誤判定
 - [x] 結果サマリー（src/components/QuizResult.tsx）- 正答率表示
-- [ ] 演習画面（src/components/Exercise.tsx）- テストチェック、レビュー依頼
+- [x] 演習画面（src/components/Exercise.tsx）- テストチェック、レビュー依頼
 - [x] 間違えた問題の復習（src/components/WrongAnswerReview.tsx）
 
 ## Phase 5: 学習コンテンツ（インプットフェーズ）

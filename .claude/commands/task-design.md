@@ -6,7 +6,7 @@ $ARGUMENTS: GitHub issueの番号（例: #3）
 
 ## 実行手順
 
-1. `gh issue view $ARGUMENTS` でissueの内容を取得する
+1. `gh issue view $ARGUMENTS --json title,body,labels,milestone,assignees` でissueの内容を取得する
 2. `docs/design.md` と `docs/requirements.md` を読み、プロジェクト全体の設計方針を把握する
 3. 現在のブランチがmainであることを確認し、最新の状態にする（`git checkout main && git pull`）
 4. issueの内容に基づき新規ブランチを作成する（`git checkout -b feature/{issue番号}-{概要の短縮名（英語）}`）

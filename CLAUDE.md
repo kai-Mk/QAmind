@@ -13,19 +13,29 @@ QAmindプロジェクトにおけるClaude Codeの作業ガイドライン。
 - 作業の進捗は [docs/TODO.md](./docs/TODO.md) で管理する
 - タスクを開始する前にTODO.mdのステータスを更新する
 - タスク完了後もTODO.mdのステータスを更新する
+- 1 issue = 1 ステアリングファイル = 1 PR
 
 ## コマンド
 
 ```bash
 pnpm install          # 依存インストール
-pnpm build        # ビルド（tsup）
-pnpm dev          # 開発モード（watch）
-pnpm test         # CLIアプリのテスト（vitest）
-pnpm lint         # ESLint
-pnpm lint:fix     # ESLint 自動修正
-pnpm format       # Prettier 整形
-pnpm format:check # Prettier 差分チェック
+pnpm build            # ビルド（tsup）
+pnpm dev              # 開発モード（watch）
+pnpm test             # CLIアプリのテスト（vitest）
+pnpm typecheck        # 型チェック（tsc --noEmit）
+pnpm lint             # ESLint
+pnpm lint:fix         # ESLint 自動修正
+pnpm format           # Prettier 整形
+pnpm format:check     # Prettier 差分チェック
 ```
+
+## カスタムコマンド
+
+- `/task-design #N` - GitHub issueからブランチ作成 → ステアリングファイル作成 → Draft PR作成
+- `/task-run <path>` - ステアリングファイルに基づきテスト → 実装
+- `/task-check` - テスト実行・完了条件照合 → TODO.md更新
+- `/text-create N` - 学習コンテンツTEXT.mdの下書き作成
+- `/test-review N` - 応用フェーズの学習者コード添削（Practice 8〜10のみ）
 
 ## コーディング規約
 
@@ -46,9 +56,11 @@ pnpm format:check # Prettier 差分チェック
 - `practices/` - 学習コンテンツ（practice1〜10）
 - `data/` - 実行時データ（progress.json, mistakes.md, wrong-answers.json）
 - `docs/` - ドキュメント
+- `docs/steering/` - タスク設計書（issueごとに作成）
 
 ## 注意事項
 
 - practices/ 内のテストは学習者が書くものなので、CLIアプリのテストとは分離する
 - vitest設定は2つ: `vitest.config.ts`（アプリ用）と `vitest.practice.config.ts`（演習用）
 - レビュー機能はClaude Code限定。カスタムコマンドは `.claude/commands/test-review.md`
+- テスト実行やビルド確認など出力が多い処理は、Taskツールでサブエージェントに委譲する

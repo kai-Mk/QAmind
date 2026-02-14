@@ -6,6 +6,13 @@ QAmindの実装タスク管理。スペック駆動開発で進める。
 
 ---
 
+## Phase 0: 開発環境・ワークフロー整備
+
+- [x] カスタムコマンド作成（task-design, task-run, task-check, text-create, test-review）
+- [x] ステアリングファイルテンプレート作成（.claude/templates/steering.md）
+- [x] PRテンプレート作成（.github/pull_request_template.md）
+- [ ] GitHubリポジトリ連携（ghコマンドでリモートリポジトリ接続）
+
 ## Phase 1: プロジェクトセットアップ
 
 - [ ] pnpm init + package.json設定（name, type: module, bin, scripts）
@@ -57,7 +64,6 @@ QAmindの実装タスク管理。スペック駆動開発で進める。
 
 ## Phase 7: Claude Code連携
 
-- [ ] レビュー用カスタムコマンド（.claude/commands/test-review.md）
 - [ ] mistakes.mdへの書き込みフロー
 
 ## Phase 8: 仕上げ

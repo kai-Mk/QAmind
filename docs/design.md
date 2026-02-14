@@ -15,7 +15,7 @@
 | Lint | ESLint + @typescript-eslint + eslint-plugin-react + eslint-plugin-react-hooks | コード品質チェック |
 | Format | Prettier | コード整形 |
 | Git hooks | husky + lint-staged | コミット時にlint/format実行 |
-| CI | GitHub Actions | lint / format / test の自動実行 |
+| CI | GitHub Actions | lint / typecheck / build / test の自動実行 |
 
 ---
 
@@ -55,11 +55,25 @@ QAmind/
 │   ├── mistakes.md
 │   └── wrong-answers.json
 ├── .claude/
-│   └── commands/
-│       └── test-review.md      ← レビュー用カスタムコマンド
+│   ├── commands/
+│   │   ├── task-design.md      ← issueからタスク設計書作成 → PR作成
+│   │   ├── task-run.md         ← ステアリングファイルに基づき実装
+│   │   ├── task-check.md       ← 実装レビュー・テスト実行
+│   │   ├── text-create.md      ← TEXT.md下書き作成
+│   │   └── test-review.md      ← 学習者コードの添削（応用フェーズ）
+│   └── templates/
+│       └── steering.md         ← ステアリングファイルのテンプレート
 ├── .github/
+│   ├── pull_request_template.md  ← PRテンプレート
 │   └── workflows/
-│       └── PR-check.yml              ← GitHub Actions（lint / format / test）
+│       └── PR-check.yml          ← GitHub Actions（lint / typecheck / build / test）
+├── docs/
+│   ├── steering/               ← タスク設計書（issueごとに作成）
+│   ├── idea/
+│   │   └── initial-requirement.md
+│   ├── requirements.md
+│   ├── design.md
+│   └── TODO.md
 ├── .husky/
 │   └── pre-commit              ← コミット時にlint-staged実行
 ├── package.json
@@ -67,11 +81,7 @@ QAmind/
 ├── vitest.config.ts
 ├── .eslintrc.cjs
 ├── .prettierrc
-└── docs/
-    ├── idea/
-    │   └── initial-requirement.md
-    ├── requirements.md
-    └── design.md
+└── CLAUDE.md
 ```
 
 ---
@@ -313,6 +323,43 @@ jobs:
 | typecheck | tscによる型チェック（`tsc --noEmit`） |
 | build | tsupによるビルド成功確認 |
 | test | CLIアプリのテスト実行 |
+
+---
+
+## 開発フロー
+
+### カスタムコマンド一覧
+
+| コマンド | 用途 |
+|---------|------|
+| `/task-design #N` | GitHub issueからブランチ作成 → ステアリングファイル作成 → Draft PR作成 |
+| `/task-run <steering-path>` | ステアリングファイルに基づきテスト → 実装（スペック駆動） |
+| `/task-check` | テスト実行・完了条件照合 → TODO.md更新 |
+| `/text-create N` | 学習コンテンツ TEXT.md の下書き作成 |
+| `/test-review N` | 応用フェーズの学習者コード添削（Claude Code限定） |
+
+### 1 issueの開発サイクル
+
+```
+1. /task-design #N
+   └→ mainからブランチ作成 → ステアリングファイル作成 → Draft PR作成
+
+2. ステアリングファイルを確認（自分でレビュー）
+
+3. issueの内容に応じて実行
+   ├→ /text-create N   （コンテンツ系issueの場合）
+   └→ /task-run <path>  （実装系issueの場合）
+
+4. /task-check
+   └→ テスト実行・完了条件照合 → TODO.md更新
+
+5. push → PRマージ
+```
+
+- issueはなるべく細かい粒度で作成する
+- 1 issue = 1 ステアリングファイル = 1 PR
+- ステアリングファイルは `.claude/templates/steering.md` のテンプレートに従う
+- PRは `.github/pull_request_template.md` のテンプレートに従う
 
 ---
 

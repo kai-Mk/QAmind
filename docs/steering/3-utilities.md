@@ -150,9 +150,9 @@ export type TestResult = {
 
 ## 完了条件
 
-- [ ] `src/types.ts` に必要な型が追加されている
-- [ ] `src/utils/progress.ts` が実装され、progress.jsonの読み書きができる
-- [ ] `src/utils/wrongAnswers.ts` が実装され、wrong-answers.jsonの読み書きができる
-- [ ] `src/utils/testRunner.ts` が実装され、vitestをプログラムから実行できる
-- [ ] 全てのテストケースが実装され、パスする
-- [ ] 型チェックが通る
+- [x] `src/types.ts` に必要な型が追加されている
+- [x] `src/utils/progress.ts` が実装され、progress.jsonの読み書きができる
+- [x] `src/utils/wrongAnswers.ts` が実装され、wrong-answers.jsonの読み書きができる
+- [x] `src/utils/testRunner.ts` が実装され、vitestをプログラムから実行できる
+- [x] 全てのテストケースが実装され、パスする
+- [x] 型チェックが通る

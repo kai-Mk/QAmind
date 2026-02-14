@@ -34,9 +34,9 @@ QAmindの実装タスク管理。スペック駆動開発で進める。
 
 ## Phase 3: ユーティリティ
 
-- [~] 進捗管理（src/utils/progress.ts）- progress.jsonの読み書き
-- [~] 間違えた問題管理（src/utils/wrongAnswers.ts）- wrong-answers.jsonの読み書き
-- [~] テスト実行（src/utils/testRunner.ts）- vitestをプログラムから実行
+- [x] 進捗管理（src/utils/progress.ts）- progress.jsonの読み書き
+- [x] 間違えた問題管理（src/utils/wrongAnswers.ts）- wrong-answers.jsonの読み書き
+- [x] テスト実行（src/utils/testRunner.ts）- vitestをプログラムから実行
 
 ## Phase 4: 画面コンポーネント
 

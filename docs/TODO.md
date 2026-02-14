@@ -59,9 +59,9 @@ QAmindの実装タスク管理。スペック駆動開発で進める。
 
 ## Phase 6: 学習コンテンツ（応用フェーズ）
 
-- [ ] Practice 8: 要件からのテスト設計
-- [ ] Practice 9: 単体/結合の責務分担
-- [ ] Practice 10: AI生成コードに対するテスト設計
+- [x] Practice 8: 要件からのテスト設計
+- [x] Practice 9: 単体/結合の責務分担
+- [x] Practice 10: AI生成コードに対するテスト設計
 
 ## Phase 7: Claude Code連携
 

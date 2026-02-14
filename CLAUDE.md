@@ -53,7 +53,10 @@ pnpm format:check     # Prettier 差分チェック
 ## ディレクトリ構成
 
 - `src/` - Ink CLIアプリのソースコード
+- `src/types.ts` - 共通型定義（Screen, MenuAction 等）
+- `src/constants.ts` - 定数（メニュー項目、画面ラベル等）
 - `src/components/` - Ink UIコンポーネント
+- `src/hooks/` - カスタムフック（画面遷移等のロジック）
 - `src/utils/` - ロジック（進捗管理、テスト実行等）
 - `src/__tests__/` - CLIアプリのテスト
 - `practices/` - 学習コンテンツ（practice1〜10）

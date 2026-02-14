@@ -105,10 +105,10 @@ export type MenuAction = 'start' | 'resume' | 'select' | 'review'
 
 ## 完了条件
 
-- [ ] `src/app.tsx` に Screen 型と画面遷移ロジックが実装されている
-- [ ] `src/components/Menu.tsx` が ink-select-input を使って4つのメニュー項目を表示する
-- [ ] メニュー項目の選択で画面状態が切り替わる
-- [ ] 未実装画面にはプレースホルダー（画面名 + メニューに戻る）が表示される
-- [ ] 単体テスト・結合テストが全て通過する
-- [ ] 型チェック（`pnpm typecheck`）が通る
-- [ ] ビルド（`pnpm build`）が成功する
+- [x] `src/app.tsx` に Screen 型と画面遷移ロジックが実装されている
+- [x] `src/components/Menu.tsx` が ink-select-input を使って4つのメニュー項目を表示する
+- [x] メニュー項目の選択で画面状態が切り替わる
+- [x] 未実装画面にはプレースホルダー（画面名 + メニューに戻る）が表示される
+- [x] 単体テスト・結合テストが全て通過する
+- [x] 型チェック（`pnpm typecheck`）が通る
+- [x] ビルド（`pnpm build`）が成功する

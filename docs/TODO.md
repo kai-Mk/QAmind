@@ -28,9 +28,9 @@ QAmindの実装タスク管理。スペック駆動開発で進める。
 
 ## Phase 2: CLIアプリ基盤
 
-- [~] エントリポイント（src/index.tsx）
-- [~] ルートコンポーネント（src/app.tsx）- 画面遷移の状態管理
-- [~] メインメニュー（src/components/Menu.tsx）
+- [x] エントリポイント（src/index.tsx）
+- [x] ルートコンポーネント（src/app.tsx）- 画面遷移の状態管理
+- [x] メインメニュー（src/components/Menu.tsx）
 
 ## Phase 3: ユーティリティ
 

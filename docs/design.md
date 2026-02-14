@@ -26,6 +26,8 @@ QAmind/
 ├── src/                        ← Ink CLIアプリ
 │   ├── index.tsx               ← エントリポイント（bin用）
 │   ├── app.tsx                 ← ルートコンポーネント
+│   ├── types.ts                ← 共通型定義（Screen, MenuAction 等）
+│   ├── constants.ts            ← 定数（メニュー項目、画面ラベル等）
 │   ├── components/             ← UIコンポーネント
 │   │   ├── Menu.tsx            ← メインメニュー
 │   │   ├── PracticeSelect.tsx  ← プラクティス選択画面
@@ -34,11 +36,14 @@ QAmind/
 │   │   ├── QuizResult.tsx      ← 選択問題の結果サマリー
 │   │   ├── Exercise.tsx        ← 演習画面（テストチェック等）
 │   │   └── WrongAnswerReview.tsx ← 間違えた問題の復習
+│   ├── hooks/                  ← カスタムフック
+│   │   └── useNavigation.ts    ← 画面遷移の状態管理
 │   └── utils/                  ← ロジック
 │       ├── progress.ts         ← progress.json の読み書き
 │       ├── wrongAnswers.ts     ← 間違えた問題の管理
 │       └── testRunner.ts       ← vitest実行
 ├── src/__tests__/              ← CLIアプリのテスト
+│   ├── helpers.ts             ← テストユーティリティ（press, KEYS等）
 │   ├── components/
 │   └── utils/
 ├── practices/                  ← 学習コンテンツ
@@ -274,6 +279,18 @@ CLIアプリのテストと学習演習のテストを分離する。
 | testRunner             | vitest実行と結果パースの動作   | vitest                       |
 
 ※ 詳細なテスト設計書は実装時に作成する。
+
+### テストユーティリティ（`src/__tests__/helpers.ts`）
+
+Ink コンポーネントのテストで共通利用するヘルパー。
+
+- `press(stdin, key)` - キー入力 + React 再レンダリング待機を1行で行う
+- `KEYS` - キーコード定数（`ENTER`, `DOWN`, `UP` 等）
+
+### テストの注意点
+
+- `render()` はテストごとに呼び出す（状態リークを防ぐため、`beforeEach` で共有しない）
+- `stdin.write()` 後は React の再レンダリングを待つ必要があるため、`press()` ヘルパーを使用する
 
 ### 学習演習のテスト
 

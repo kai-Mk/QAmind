@@ -40,8 +40,8 @@ QAmindの実装タスク管理。スペック駆動開発で進める。
 
 ## Phase 4: 画面コンポーネント
 
-- [ ] プラクティス選択（src/components/PracticeSelect.tsx）- 一覧 + 番号入力
-- [ ] TEXT.md表示（src/components/TextViewer.tsx）- marked-terminal使用
+- [x] プラクティス選択（src/components/PracticeSelect.tsx）- 一覧 + 番号入力
+- [x] TEXT.md表示（src/components/TextViewer.tsx）- marked-terminal使用
 - [ ] 選択問題（src/components/Quiz.tsx）- 1問ずつ出題、正誤判定
 - [ ] 結果サマリー（src/components/QuizResult.tsx）- 正答率表示
 - [ ] 演習画面（src/components/Exercise.tsx）- テストチェック、レビュー依頼

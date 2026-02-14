@@ -1,2 +1,7 @@
 node_modules/
 dist/
+
+# 実行時データ（data/.gitkeep は除外しない）
+data/progress.json
+data/wrong-answers.json
+data/mistakes.md
